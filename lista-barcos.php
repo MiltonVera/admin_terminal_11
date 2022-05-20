@@ -26,15 +26,6 @@
             <div class="box-body">
 
             <div class="container">
-              <h2>Select Number Of Rows</h2>
-                <div class="form-group">    <!--        Show Numbers Of Rows        -->
-                    <select class  ="form-control" name="state" id="maxRows">
-                         <option value="5000">Show ALL Rows</option>
-                         <option value="5">5</option>
-                         <option value="10">10</option>
-                        
-                        </select>
-                    
                 </div>  
               <table id="registros" class="table table-bordered table-striped">
                 <thead>
