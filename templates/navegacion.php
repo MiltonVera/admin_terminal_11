@@ -50,7 +50,7 @@
           </a>
           <ul class="treeview-menu">
             <li><a href="crear-saldo.php"><i class="fa-solid fa-pen"></i> Actualizar Saldos</a></li>
-            <li><a href="lista-saldo.php"><i class="far fa-eye"> Ver Saldos</a></li>
+            <li><a href="lista-saldo.php"><i class="far fa-eye"></i> Ver Saldos</a></li>
           </ul>
         </li>
       <?php } ?>   
