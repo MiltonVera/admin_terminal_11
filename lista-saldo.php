@@ -31,9 +31,10 @@
                 <tr>
                   <th>Fecha</th>
                   <th>Saldo Anterior</th>
-                  <th>Banamex</th>
-                  <th>Banci</th>
+                  <th>Banbajio</th>
+                  <th>Banregio</th>
                   <th>Banorte</th>
+                  <th>Banco Base</th>
                   <th>Gastos</th>
                   <th>Ingresos</th>
                   <th>Suma</th>
@@ -55,12 +56,13 @@
                                 <tr>
                                     <td><?php echo $saldo['fecha']; ?></td>
                                     <td><?php echo $saldo['saldo_anterior']; ?></td>
-                                    <td><?php echo $saldo['banamex']; ?></td>
-                                    <td><?php echo $saldo['banci']; ?></td>
+                                    <td><?php echo $saldo['banbajio']; ?></td>
+                                    <td><?php echo $saldo['banregio']; ?></td>
                                     <td><?php echo $saldo['banorte']; ?></td>
+                                    <td><?php echo $saldo['bancobase']; ?></td>
                                     <td><?php echo $saldo['gastos']; ?></td>
-                                    <td><?php echo $saldo['suma']; ?></td>
                                     <td><?php echo $saldo['ingresos']; ?></td>
+                                    <td><?php echo $saldo['suma']; ?></td>                
                                     <td><?php echo $saldo['saldo']; ?></td>
                                 </tr>
                             <?php }  ?>

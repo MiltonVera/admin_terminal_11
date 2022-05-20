@@ -32,33 +32,38 @@ include_once 'templates/navegacion.php';
 
                     <div class="box-body">
                         <!-- form start -->
-                        <form role="form" name="guardar-registro" id="guardar-registro" method="post" action="modelo-saldo.php">
+                        <form role="form" name="guardar-registro" placeholder="Saldo en Cuenta" id="guardar-registro" method="post" action="modelo-saldo.php">
 
                             <div class="box-body">
 
                                 <div class="form-group">
-                                    <label for="banamex">Banamex</label>
-                                    <input type="text" class="form-control" name="banamex" id="banamex">
+                                    <label for="banbajio">Banbajio</label>
+                                    <input type="text" class="form-control" name="banbajio" placeholder="Saldo en Cuenta" id="banbajio">
                                 </div>
 
                                 <div class="form-group">
-                                    <label for="banci">Banci</label>
-                                    <input type="text" class="form-control" name="banci" id="banci">
+                                    <label for="banregio">Banregio</label>
+                                    <input type="text" class="form-control" name="banregio" placeholder="Saldo en Cuenta" id="banregio">
                                 </div>
 
                                 <div class="form-group">
                                     <label for="banorte">Banorte</label>
-                                    <input type="text" class="form-control" name="banorte" id="banorte">
+                                    <input type="text" class="form-control" name="banorte" placeholder="Saldo en Cuenta" id="banorte">
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="bancobase">Banco Base</label>
+                                    <input type="text" class="form-control" name="bancobase" placeholder="Saldo en Cuenta" id="bancobase">
                                 </div>
 
                                 <div class="form-group">
                                     <label for="gastos">Gastos</label>
-                                    <input type="text" class="form-control" name="gastos" id="gastos">
+                                    <input type="text" class="form-control" name="gastos" placeholder="Gastos Registrados" id="gastos">
                                 </div>
 
                                 <div class="form-group">
                                     <label for="ingresos">Ingresos</label>
-                                    <input type="text" class="form-control" name="ingresos" id="ingresos">
+                                    <input type="text" class="form-control" name="ingresos" placeholder="Ingresos Registrados" id="ingresos">
                                 </div>
                                 
 

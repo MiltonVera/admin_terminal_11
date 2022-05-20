@@ -10,13 +10,14 @@ date_default_timezone_set('America/Monterrey');
 
 $id = $_POST['id_saldo'];
 $fecha = date('d/m/Y', time());
-$banamex = (float)$_POST["banamex"];
-$banci = (float)$_POST["banci"];
+$banbajio = (float)$_POST["banbajio"];
+$banregio = (float)$_POST["banregio"];
 $banorte = (float)$_POST["banorte"];
+$bancobase = (float)$_POST["bancobase"];
 $gastos =(float) $_POST["gastos"];
 $ingresos = (float) $_POST["ingresos"];
 $suma = $ingresos-$gastos;
-$saldo = $banamex+$banci+$banorte;
+$saldo = $banbajio+$banregio+$banorte+$bancobase;
 
 
 if($_POST['registro'] == 'nuevo'){
@@ -28,8 +29,8 @@ if($_POST['registro'] == 'nuevo'){
         $saldo_anterior = $result->fetch_assoc(); // fetch data
         $saldo_anterior = $saldo_anterior["saldo"];
 
-        $stmt = $conn->prepare('INSERT INTO saldos(saldo_anterior,banamex,banci,banorte,gastos,ingresos,suma,saldo,fecha) VALUES (?,?,?,?,?,?,?,?,?) ');
-        $stmt->bind_param("dddddddds", $saldo_anterior,$banamex,$banci,$banorte,$gastos,$ingresos,$suma,$saldo,$fecha);
+        $stmt = $conn->prepare('INSERT INTO saldos(saldo_anterior,banbajio,banregio,banorte,bancobase,gastos,ingresos,suma,saldo,fecha) VALUES (?,?,?,?,?,?,?,?,?,?) ');
+        $stmt->bind_param("ddddddddds", $saldo_anterior,$banbajio,$banregio,$banorte,$bancobase,$gastos,$ingresos,$suma,$saldo,$fecha);
         $stmt->execute();
         $id_insertado = $stmt->insert_id;
         if($stmt->affected_rows) {
