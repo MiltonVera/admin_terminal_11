@@ -1,0 +1,21 @@
+.user-panel {
+    height: 60px;
+}
+
+.user-panel>.info {
+    position: relative;
+    left: auto;
+}
+
+@media (min-width:768px) {
+    .calcular {
+        width: 40%;
+        margin: 0 auto;
+        margin-top: 10px;
+    }
+    .limpiar {
+        width: 40%;
+        margin: 0 auto;
+        margin-top: 10px;
+    }
+}

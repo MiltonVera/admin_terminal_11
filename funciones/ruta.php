@@ -1,0 +1,1 @@
+<?php $directorio = "img/productos/"; /*Cambiar de la ruta ya en el hosting a https://dakar.com.mx/img/productos/*/ ?>
