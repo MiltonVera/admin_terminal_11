@@ -48,7 +48,7 @@ if($_POST['registro'] == 'actualizar'){
                 'cost' => 12
             );            
             $hash_password = password_hash($password, PASSWORD_BCRYPT, $opciones);
-            $stmt = $conn->prepare('UPDATE admins SET usuario = ?, nombre = ?, password = ? = NOW() WHERE id_admin = ? ');
+            $stmt = $conn->prepare('UPDATE admins SET usuario = ?, nombre = ?, password = ? WHERE id_admin = ? ');
             $stmt->bind_param("sssi", $usuario, $nombre, $hash_password, $id_registro);
         }
         
