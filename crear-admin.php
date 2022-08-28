@@ -29,7 +29,7 @@ include_once 'templates/header.php';
               <div class="box-body">
 
                 <div class="form-group">
-                  <label for="exampleInputEmail1">Usuario:</label>
+                  <label for="exampleInputEmail1">Usuario(Correo):</label>
                   <input type="text" class="form-control" id="usuario" name="usuario" placeholder="Usuario">
                 </div>
 
@@ -45,13 +45,20 @@ include_once 'templates/header.php';
               
 
                 <div class="form-group">
-                    <label>Nivel</label>
-                      <select class="form-control select2" name="nivel" style="width: 100%;">
+                    <label>Rol</label>
+                      <select class="form-control select2" name="rol" style="width: 100%;">
                         <option selected="selected">---Selecionar----</option>
-                        <option value="4">Full Admin</option>
-                        <option value="3">Admin</option>
-                        <option value="2">Contador</option>
-                        <option value="1">Barco</option>
+                        <option value="Full Admin">Full Admin</option>
+                        <option value="Administracion">Administracion</option>
+                        <option value="Contabilidad">Contabilidad</option>
+                        <option value="Recursos Humanos">Recursos Humanos</option>
+                        <option value="Recinto Fiscal">Recinto Fiscal</option>
+                        <option value="Almacen">Almacen</option>
+                        <option value="Operacion">Operacion</option>
+                        <option value="Ingenieria">Ingenieria</option>
+                        <option value="Mantenimiento">Mantenimiento</option>
+                        <option value="Subdireccion De Operaciones">Subdireccion De Operaciones</option>
+                        <option value="Compras">Compras</option>
                       </select>
                 </div>
                 </div>

@@ -1,4 +1,5 @@
 $(document).ready(function() {
+    
     $('#guardar-registro').on('submit', function(e) {
         e.preventDefault();
         let datos = $(this).serializeArray();
@@ -186,6 +187,8 @@ $(document).ready(function() {
             }
         })
     });
+
+    
 
 
 });

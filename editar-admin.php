@@ -57,6 +57,21 @@ include_once 'templates/navegacion.php';
                   <input type="password" class="form-control" id="password" name="password" placeholder="Password para Iniciar Sesión">
                 </div>
               </div>
+              <div class="form-group">
+                    <label>Rol</label>
+                      <select class="form-control select2" name="rol" style="width: 100%;">
+                        <option <?php if($admin["rol"] == "Full Admin"){echo "selected='selected'";}?> value="Full Admin">Full Admin</option>
+                        <option <?php if($admin["rol"] == "Administracion"){echo "selected='selected'";}?> value="Administracion">Administracion</option>
+                        <option <?php if($admin["rol"] == "Contabilidad"){echo "selected='selected'";}?> value="Contabilidad">Contabilidad</option>
+                        <option <?php if($admin["rol"] == "Recursos Humanos"){echo "selected='selected'";}?> value="Recursos Humanos">Recursos Humanos</option>
+                        <option <?php if($admin["rol"] == "Recinto Fiscal"){echo "selected='selected'";}?> value="Recinto Fiscal">Recinto Fiscal</option>
+                        <option <?php if($admin["rol"] == "Almacen"){echo "selected='selected'";}?> value="Almacen">Almacen</option>
+                        <option <?php if($admin["rol"] == "Operacion"){echo "selected='selected'";}?> value="Operacion">Operacion</option>
+                        <option <?php if($admin["rol"] == "Ingenieria"){echo "selected='selected'";}?> value="Ingenieria">Ingenieria</option>
+                        <option <?php if($admin["rol"] == "Mantenimiento"){echo "selected='selected'";}?> value="Mantenimiento">Mantenimiento</option>
+                        <option <?php if($admin["rol"] == "Subdireccion De Operaciones"){echo "selected='selected'";}?> value="Subdireccion De Operaciones">Subdireccion De Operaciones</option>
+                      </select>
+                </div>
               <!-- /.box-body -->
 
               <div class="box-footer">

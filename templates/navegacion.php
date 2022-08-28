@@ -24,47 +24,69 @@
         <li class="header">Menu de Administracion</li>
 
         <li>
-          <a href="admin-area.php">
+          <a href="/admin-area.php">
             <i class="fas fa-tachometer-alt"></i> <span>Dashboard</span>           
           </a>
         </li>
 
-      <?php if($_SESSION['nivel'] >= 3 or $_SESSION['nivel'] == 1){ ?>  
-        <li class="treeview">
+        
+        <!-- <li class="treeview">
           <a href="#">
           <i class="fas fa-ship"></i>
             <span>Barcos</span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="crear-barco.php"><i class="fa-solid fa-pen"></i> Registrar Barco</a></li>
-            <li><a href="lista-barcos.php"><i class="far fa-eye"></i> Administrar Barcos</a></li>
+            <li><a href="/crear-barco.php"><i class="fa-solid fa-pen"></i> Registrar Barco</a></li>
+            <li><a href="/lista-barcos.php"><i class="far fa-eye"></i> Administrar Barcos</a></li>
           </ul>
-        </li>
-      <?php } ?> 
+        </li> -->
 
-      <?php if($_SESSION['nivel'] >= 2){ ?> 
+      <!-- <?php /*if($_SESSION['nivel'] == "Contador"){ ?> 
         <li class="treeview">
           <a href="#">
           <i class="fas fa-dollar-sign"></i>
             <span>Saldos</span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="crear-saldo.php"><i class="fa-solid fa-pen"></i> Actualizar Saldos</a></li>
-            <li><a href="lista-saldo.php"><i class="far fa-eye"></i> Ver Saldos</a></li>
+            <li><a href="/crear-saldo.php"><i class="fa-solid fa-pen"></i> Actualizar Saldos</a></li>
+            <li><a href="/lista-saldo.php"><i class="far fa-eye"></i> Ver Saldos</a></li>
           </ul>
         </li>
-      <?php } ?>   
+      <?php } */?>    -->
 
+      <li class="treeview">
+          <a href="#">
+          <i class="fa-solid fa-shop"></i>
+            <span>Compras</span>
+          </a>
+          <ul class="treeview-menu">
 
-        <?php if($_SESSION['nivel'] == 4){ ?>
+            <li><a href="/admin_terminal_11/compras/requisicion.php"><i class="fa-solid fa-hand-holding"></i> Requisicion</a></li>
+
+            <?php if($_SESSION["rol"] == "Subdireccion De Operaciones" or $_SESSION["rol"] == "Full Admin"){ ?>
+              <li><a href="/admin_terminal_11/compras/autorizacion.php"><i class="fa-solid fa-check-to-slot"></i> Autorizacion de Compras</a></li>
+            <?php } ?>
+
+            <?php if($_SESSION["rol"] == "Compras" or $_SESSION["rol"] == "Full Admin"){ ?>
+              <li><a href="/admin_terminal_11/compras/orden_compra.php"><i class="fa-solid fa-bag-shopping"></i> Orden de Compra</a></li>
+            <?php } ?>
+
+            <?php if($_SESSION["rol"] == "Contabilidad" or $_SESSION["rol"] == "Full Admin"){ ?>
+              <li><a href="/admin_terminal_11/compras/tipo_pago.php"><i class="fa-solid fa-wallet"></i> Pago</a></li>
+            <?php } ?>
+            <li><a href="/admin_terminal_11/compras/lista_compras.php"><i class="far fa-eye"></i> Estatus Compras</a></li>
+          </ul>
+      </li>
+
+        <?php if($_SESSION['rol'] == "Full Admin"){ ?>
         <li class="treeview">
           <a href="#">
             <i class="fas fa-user-cog"></i>
             <span>Administradores</span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="lista-admin.php"><i class="far fa-eye"></i> Ver Todos</a></li>
-            <li><a href="crear-admin.php"><i class="fas fa-plus-square"></i> Agregar</a></li>
+            <li><a href="/lista-admin.php"><i class="far fa-eye"></i> Ver Todos</a></li>
+            <li><a href="/crear-admin.php"><i class="fas fa-plus-square"></i> Agregar</a></li>
           </ul>
         </li>
         <?php } ?>

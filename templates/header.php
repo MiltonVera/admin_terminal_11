@@ -28,6 +28,7 @@
   
   <link rel="stylesheet" href="css/admin.css">
 
+  <link rel="icon" type="image/x-icon" href="compras/logo.jpg">
   
 
   <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->

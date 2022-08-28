@@ -28,13 +28,15 @@ include_once 'templates/navegacion.php';
                 <tr>
                   <th>Usuario</th>
                   <th>Nombre</th>
+                  <th>Rol</th>
                   <th>Acciones</th>
+                  
                 </tr>
               </thead>
               <tbody>
                 <?php
                 try {
-                  $sql = "SELECT id_admin,usuario,nombre FROM admins";
+                  $sql = "SELECT * FROM admins";
                   $resultado = $conn->query($sql);
                 } catch (Exception $e) {
                   echo 'Error:' . $e->getMessage();
@@ -44,6 +46,7 @@ include_once 'templates/navegacion.php';
                   <tr>
                     <td><?php echo $admin['usuario'] ?></td>
                     <td><?php echo $admin['nombre'] ?></td>
+                    <td><?php echo $admin['rol'] ?></td>
                     <td>
                       <a href="editar-admin.php?id=<?php echo $admin['id_admin'] ?>" class="btn bg-orange btn-flat margin">
                         <i class="fas fa-pencil-alt"></i>
@@ -59,7 +62,9 @@ include_once 'templates/navegacion.php';
                 <tr>
                   <th>Usuario</th>
                   <th>Nombre</th>
+                  <th>Rol</th>
                   <th>Acciones</th>
+                  
                 </tr>
               </tfoot>
             </table>

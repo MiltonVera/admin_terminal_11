@@ -7,22 +7,17 @@ include_once 'templates/header.php';
 
 //Cantidad de barcos, barcos facturados, utilidad del dia, saldo total
  try {
-   $sql = "SELECT count(*) as cantidad FROM barcos";
-   $barcos = $conn->query($sql);
-   $barcos = $barcos->fetch_assoc();
+   $sql = "SELECT count(*) as cantidad FROM requisicion WHERE MONTH(STR_TO_DATE(fecha, '%d/%m/%Y')) = MONTH(CURDATE())";
+   $totales = $conn->query($sql);
+   $totales = $totales->fetch_assoc();
 
-   $sql = "SELECT count(estatus) as cantidad FROM barcos WHERE estatus='facturado'";
-   $facturas = $conn->query($sql);
-   $facturas = $facturas->fetch_assoc();
-
-   $sql = "SELECT saldo from saldos ORDER BY id_saldo DESC LIMIT 1";
-   $saldo = $conn->query($sql);
-   $saldo = $saldo->fetch_assoc();
-
-   $sql = "SELECT suma from saldos ORDER BY id_saldo DESC LIMIT 1";
+   $sql = "SELECT ROUND(SUM(costo_total),2) as suma FROM compras WHERE MONTH(STR_TO_DATE(fecha, '%d/%m/%Y')) = MONTH(CURDATE()) AND status='Entregado'";
    $suma = $conn->query($sql);
    $suma = $suma->fetch_assoc();
 
+   $sql = "SELECT count(*) as cantidad FROM compras WHERE MONTH(STR_TO_DATE(fecha, '%d/%m/%Y')) = MONTH(CURDATE()) AND status='Entregado'";
+   $concretadas = $conn->query($sql);
+   $concretadas = $concretadas->fetch_assoc();
 
  } catch (\Throwable $th) {
    
@@ -41,58 +36,37 @@ include_once 'templates/header.php';
     <section class="content">
 
     <div class="row">
-
-    <?php if($_SESSION['nivel'] >= 3 or $_SESSION['nivel'] == 1){ ?>  
         <!-- ./col -->
-        <div class="col-lg-3 col-xs-6">
-          <!-- small box -->
-          <div class="small-box bg-red">
-            <div class="inner">
-              <h3><?php echo $barcos['cantidad'] ?></h3>
 
-              <p>Barcos</p>
-            </div>
-            <div class="icon">
-              <i class="fas fa-ship"></i>
-            </div>
-            <a href="lista-barcos.php" class="small-box-footer">Administrar <i class="fa fa-arrow-circle-right"></i></a>
-          </div>
-        </div>
-    
-
-        <div class="col-lg-3 col-xs-6">
-          <!-- small box -->
-          <div class="small-box bg-orange">
-            <div class="inner">
-              <h3><?php echo $facturas['cantidad'] ?></h3>
-
-              <p>Facturas Barcos</p>
-            </div>
-            <div class="icon">
-              <i class="fas fa-receipt"></i>
-            </div>
-            <a href="lista-barcos.php" class="small-box-footer">Administrar <i class="fa fa-arrow-circle-right"></i></a>
-          </div>
-        </div>
-      <?php } ?> 
-
-
-      <?php if($_SESSION['nivel'] >= 2){ ?> 
         <div class="col-lg-3 col-xs-6">
           <!-- small box -->
           <div class="small-box bg-blue">
             <div class="inner">
-              <h3><?php echo $saldo['saldo'] ?></h3>
+              <h3><?php echo $totales['cantidad'] ?></h3>
 
-              <p>Saldo Total</p>
+              <p>Requisiciones del Mes Concretadas</p>
             </div>
             <div class="icon">
-              <i class="fas fa-dollar-sign"></i>
+              <i class="fa-solid fa-bag-shopping"></i>
             </div>
-            <a href="lista-saldo.php" class="small-box-footer">Administrar <i class="fa fa-arrow-circle-right"></i></a>
+            <a href="compras/lista_compras.php" class="small-box-footer">Administrar <i class="fa fa-arrow-circle-right"></i></a>
           </div>
         </div>
 
+        <div class="col-lg-3 col-xs-6">
+          <!-- small box -->
+          <div class="small-box bg-green">
+            <div class="inner">
+              <h3><?php echo $concretadas['cantidad'] ?></h3>
+
+              <p>Requisiciones Concretadas</p>
+            </div>
+            <div class="icon">
+              <i class="fa-solid fa-check-double"></i>
+            </div>
+            <a href="compras/lista_compras.php" class="small-box-footer">Administrar <i class="fa fa-arrow-circle-right"></i></a>
+          </div>
+        </div>
 
         <div class="col-lg-3 col-xs-6">
           <!-- small box -->
@@ -100,17 +74,15 @@ include_once 'templates/header.php';
             <div class="inner">
               <h3><?php echo $suma['suma'] ?></h3>
 
-              <p>Utilidad Diaria</p>
+              <p>Gasto total del mes</p>
             </div>
             <div class="icon">
-              <i class="fa-solid fa-arrow-trend-up"></i>
+              <i class="fa-solid fa-coins"></i>
             </div>
-            <a href="lista-saldo.php" class="small-box-footer">Administrar <i class="fa fa-arrow-circle-right"></i></a>
+            <a href="compras/lista_compras.php" class="small-box-footer">Administrar <i class="fa fa-arrow-circle-right"></i></a>
           </div>
         </div>
-        <!-- ./col -->
-      </div>
-      <?php } ?> 
+    
     </section>
     <!-- /.content -->
   
