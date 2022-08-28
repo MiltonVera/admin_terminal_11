@@ -64,17 +64,17 @@
             <li><a href="/admin_terminal_11/compras/requisicion.php"><i class="fa-solid fa-hand-holding"></i> Requisicion</a></li>
 
             <?php if($_SESSION["rol"] == "Subdireccion De Operaciones" or $_SESSION["rol"] == "Full Admin"){ ?>
-              <li><a href="/admin_terminal_11/compras/autorizacion.php"><i class="fa-solid fa-check-to-slot"></i> Autorizacion de Compras</a></li>
+              <li><a href="/compras/autorizacion.php"><i class="fa-solid fa-check-to-slot"></i> Autorizacion de Compras</a></li>
             <?php } ?>
 
             <?php if($_SESSION["rol"] == "Compras" or $_SESSION["rol"] == "Full Admin"){ ?>
-              <li><a href="/admin_terminal_11/compras/orden_compra.php"><i class="fa-solid fa-bag-shopping"></i> Orden de Compra</a></li>
+              <li><a href="/compras/orden_compra.php"><i class="fa-solid fa-bag-shopping"></i> Orden de Compra</a></li>
             <?php } ?>
 
             <?php if($_SESSION["rol"] == "Contabilidad" or $_SESSION["rol"] == "Full Admin"){ ?>
-              <li><a href="/admin_terminal_11/compras/tipo_pago.php"><i class="fa-solid fa-wallet"></i> Pago</a></li>
+              <li><a href="/compras/tipo_pago.php"><i class="fa-solid fa-wallet"></i> Pago</a></li>
             <?php } ?>
-            <li><a href="/admin_terminal_11/compras/lista_compras.php"><i class="far fa-eye"></i> Estatus Compras</a></li>
+            <li><a href="/compras/lista_compras.php"><i class="far fa-eye"></i> Estatus Compras</a></li>
           </ul>
       </li>
 
