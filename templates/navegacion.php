@@ -61,7 +61,7 @@
           </a>
           <ul class="treeview-menu">
 
-            <li><a href="/admin_terminal_11/compras/requisicion.php"><i class="fa-solid fa-hand-holding"></i> Requisicion</a></li>
+            <li><a href="/compras/requisicion.php"><i class="fa-solid fa-hand-holding"></i> Requisicion</a></li>
 
             <?php if($_SESSION["rol"] == "Subdireccion De Operaciones" or $_SESSION["rol"] == "Full Admin"){ ?>
               <li><a href="/compras/autorizacion.php"><i class="fa-solid fa-check-to-slot"></i> Autorizacion de Compras</a></li>
