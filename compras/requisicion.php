@@ -51,6 +51,12 @@ include_once '../templates/navegacion.php';
                                     </select>
                                 </div>
 
+                                <!-- Esto se debe remover despues del ingreso de datos historicos -->
+                                <div class="form-group">
+                                    <label for="fecha">Fecha</label>
+                                    <input type="text" class="form-control" id="fecha" name="fecha" placeholder="dia/mes/año(01/01/2001)">
+                                </div>
+
                                 <div class="form-group">
                                     <label for="solicitante">Nombre de Solicitante</label>
                                     <input type="text" class="form-control" id="solicitante" name="solicitante" placeholder="Nombre de Solicitante">

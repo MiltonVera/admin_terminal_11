@@ -28,14 +28,15 @@ $productos = json_encode($productos_entrada);
 {"cantidad":["20","10","5"],"unidad":["metros","litros","papeles"],"concepto":["lamina","gasolina","papel"]} */
 
 
-$fecha = date('d/m/Y', time());
+//$fecha = date('d/m/Y', time()); esto debe descomentarse despues del ingreso de los datos historicos
+$fecha = $_POST["fecha"];//Esto se debe quitar despues del ingreso de los datos
 
 $false = "False";
     
     try {
         $conn->autocommit(false);
         //Insertandos los datos a requisicion
-        $stmt1 = $conn->prepare('INSERT INTO requisicion (fecha,area,nombre_solicitante,lugar_entrega,productos,clasificacion) VALUES (?,?,?,?,?,?) ');
+        $stmt1 = $conn->prepare('INSERT INTO requisicion (fecha,area,nombre_solicitante,lugar_entrega,productos,clasificacion) VALUES (?,?,?,?,?,?)');
         $stmt1->bind_param("ssssss", $fecha,$area,$solicitante,$entrega,$productos,$clasificacion);
         $stmt1->execute();
         $id_insertado1 = $stmt1->insert_id;
@@ -46,11 +47,14 @@ $false = "False";
         
         $status = "Autorizacion";
         //Declarando la compra
-        $stmt3 = $conn->prepare('INSERT INTO compras (id_compra,id_requisicion,id_orden_compra,status,area,nombre,clasificacion) VALUES (?,?,?,?,?,?,?) ');
-        $stmt3->bind_param("iiissss", $id_insertado1,$id_insertado1,$id_insertado1,$status,$area,$solicitante,$clasificacion);
+
+         //Pondremos la fecha desde que se inserta, esto se debe quitar cuando se ingresen los datos   
+
+        $stmt3 = $conn->prepare('INSERT INTO compras (id_compra,id_requisicion,id_orden_compra,status,area,nombre,clasificacion,fecha) VALUES (?,?,?,?,?,?,?,?)');
+        $stmt3->bind_param("iiisssss", $id_insertado1,$id_insertado1,$id_insertado1,$status,$area,$solicitante,$clasificacion,$fecha);
         $stmt3->execute();
         //Añadir el registro a autorizacion
-        $stmt4 = $conn->prepare('INSERT INTO autorizacion (area,nombre,id_requisicion) VALUES (?,?,?) ');
+        $stmt4 = $conn->prepare('INSERT INTO autorizacion (area,nombre,id_requisicion) VALUES (?,?,?)');
         $stmt4->bind_param("ssi", $area,$solicitante,$id_insertado1);
         $stmt4->execute();
 

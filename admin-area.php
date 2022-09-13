@@ -44,7 +44,7 @@ include_once 'templates/header.php';
             <div class="inner">
               <h3><?php echo $totales['cantidad'] ?></h3>
 
-              <p>Requisiciones del Mes Concretadas</p>
+              <p>Requisiciones del Mes</p>
             </div>
             <div class="icon">
               <i class="fa-solid fa-bag-shopping"></i>

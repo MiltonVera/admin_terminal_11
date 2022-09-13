@@ -55,10 +55,9 @@ if($_POST['registro'] == 'editar'){
     $cantidad = array_map('intval', $_POST["cantidad"]);
     $unidad = $_POST["unidad"];
     $concepto = $_POST["concepto"];
-    $precio_unitario = array_map('floatval', $_POST["precio_unitario"]);
-    
+    $precio_unitario = array_map('doubleval', $_POST["precio_unitario"]);
     $importe = array();
-    $subtotal = 0;
+    $subtotal = (double)0;
     for($i = 0;$i<count($cantidad);$i++){
         $importe[] = $cantidad[$i]*$precio_unitario[$i];
         $subtotal += $importe[$i];

@@ -7,12 +7,13 @@ error_reporting(E_ALL);
 date_default_timezone_set('America/Monterrey');
 
 $id_compra = (int)$_POST["id_compra"];
-$fecha = date('d/m/Y', time());
+
+//$fecha = date('d/m/Y', time()); Esto se debe habilitar despues del ingreso de los datos
     
     try {
        
-        $stmt1 = $conn->prepare('UPDATE compras SET status="Entregado",fecha=? WHERE id_compra=? ');
-        $stmt1->bind_param("si",$fecha ,$id_compra);
+        $stmt1 = $conn->prepare('UPDATE compras SET status="Entregado" WHERE id_compra=? ');
+        $stmt1->bind_param("i",$id_compra);
         $stmt1->execute();
       
         if($stmt1->affected_rows) {
