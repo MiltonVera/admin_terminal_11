@@ -211,7 +211,7 @@ include_once '../templates/navegacion.php';
                     )
                     console.log(resultado.id_insertado)
                     setTimeout(() => {
-                        window.location.href = `http://localhost/admin_terminal_11/compras/descarga_requisicion.php?id=${resultado.id_insertado}`;
+                        window.location.href = `../compras/descarga_requisicion.php?id=${resultado.id_insertado}`;
                     }, 2500);
                     
                 } else {
