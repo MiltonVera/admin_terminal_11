@@ -41,16 +41,19 @@ if($_POST['registro'] == 'enviar'){
 
 if($_POST['registro'] == 'editar'){
     $id = (int)$_POST["id"];
-    $proveedor = $_POST["proveedor"];
+
     $cheque = $_POST["cheque"];
     $contado = $_POST["contado"];
     $credito = $_POST["credito"];
-    $datos_pago = $_POST["datos_pago"];
-    $banco = $_POST["banco"];
-    $cuenta_abono = $_POST["cuenta_abono"];
-    $sucursal = $_POST["sucursal"];
+
+    $nombre_fiscal = $_POST["nombre_fiscal"];
+    $rfc = $_POST["rfc"];
+    $direccion = $_POST["direccion"];
+    $cuenta = $_POST["cuenta"];
     $clabe = $_POST["clabe"];
-    $referencia = $_POST["referencia"];
+    $banco = $_POST["banco"];
+    $nombre_comercial = $_POST["nombre_comercial"];
+
 
     $cantidad = array_map('intval', $_POST["cantidad"]);
     $unidad = $_POST["unidad"];
@@ -77,14 +80,14 @@ if($_POST['registro'] == 'editar'){
     try {
         $conn->autocommit(false);
         //Actualizar la orden de compra con lo datos
-        $stmt1 = $conn->prepare("UPDATE orden SET nombre_proveedor=?,cheque_a_favor=?,contado=?,credito=?,
-                                datos_pago=?,banco=?,cuenta_abono=?,sucursal=?,clabe=?,ref_bancaria=?,
+        $stmt1 = $conn->prepare("UPDATE orden SET cheque=?,contado=?,credito=?,nombre_fiscal=?,rfc=?,direccion=?,cuenta=?,clabe=?,banco=?,nombre_comercial=?,
                                 productos=?,subtotal=?,iva=?,total=?,mostrar='False' WHERE id_orden_compra=?");
-        $stmt1->bind_param('sssssssssssdddi', $proveedor,$cheque,$contado,$credito,$datos_pago,$banco,$cuenta_abono,$sucursal,$clabe,$referencia,$productos,$subtotal,$iva,$total,$id);
+        $stmt1->bind_param('sssssssssssdddi', $cheque,$contado,$credito,$nombre_fiscal,$rfc,$direccion,$cuenta,$clabe,$banco,$nombre_comercial
+                                            ,$productos,$subtotal,$iva,$total,$id);
         $stmt1->execute();
         //Introducir el registro para definir el pago
         $stmt2 = $conn->prepare('INSERT INTO pago (provedor,costo,id_orden) VALUES (?,?,?) ');
-        $stmt2->bind_param("sds",$proveedor,$total,$id );
+        $stmt2->bind_param("sds",$nombre_comercial,$total,$id );
         $stmt2->execute();
         //Actualizar el status de la compra
         $stmt3 = $conn->prepare('UPDATE compras SET status="Modo de Pago",costo_total=? WHERE id_compra=?');

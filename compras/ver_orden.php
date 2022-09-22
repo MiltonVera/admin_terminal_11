@@ -47,64 +47,54 @@ $conn->close();
                         <form role="form" name="guardar-orden" id="guardar-orden" method="post" action="modelo-orden.php">
                             <div class="box-body">
 
-                                <div class="form-group">
-                                    <label for="proveedor">Area</label>
-                                    <input type="text" class="form-control" value="<?php echo $orden["area"]; ?>" disabled>
-                                </div>
-
-                                <div class="form-group">
-                                    <label for="proveedor">Fecha</label>
-                                    <input type="text" class="form-control" value="<?php echo $orden["fecha"]; ?>" disabled>
-                                </div>
-
-                                <div class="form-group">
-                                    <label for="proveedor">Nombre del Proveedor</label>
-                                    <input type="text" class="form-control" value="<?php echo $orden["nombre_proveedor"]; ?>" disabled>
-                                </div>
-
-                                <div class="form-group">
+                            <div class="form-group">
                                     <label for="cheque">Cheque a Favor</label>
-                                    <input type="text" class="form-control" value="<?php echo $orden["cheque_a_favor"]; ?>" disabled>
+                                    <input type="text" class="form-control" name="cheque" disabled value= <?php echo $orden["cheque"] ?>>
                                 </div>
 
                                 <div class="form-group">
                                     <label for="contado">Contado</label>
-                                    <input type="text" class="form-control"value="<?php echo $orden["contado"]; ?>" disabled>
+                                    <input type="text" class="form-control" name="contado" disabled value= <?php echo $orden["contado"] ?>>
                                 </div>
 
                                 <div class="form-group">
                                     <label for="credito">Credito</label>
-                                    <input type="text" class="form-control"value="<?php echo $orden["credito"]; ?>" disabled>
+                                    <input type="text" class="form-control" name="credito" disabled value= <?php echo $orden["credito"] ?>>
                                 </div>
 
                                 <div class="form-group">
-                                    <label for="datos_pago">Datos del Pago</label>
-                                    <input type="text" class="form-control" value="<?php echo $orden["datos_pago"]; ?>" disabled>
+                                    <label for="proveedor">Nombre Fiscal Proveedor</label>
+                                    <input type="text" class="form-control" name="nombre_fiscal" disabled value= <?php echo $orden["nombre_fiscal"] ?> >
                                 </div>
 
                                 <div class="form-group">
-                                    <label for="banco">Banco</label>
-                                    <input type="text" class="form-control" value="<?php echo $orden["banco"]; ?>" disabled>
+                                    <label for="proveedor">RFC</label>
+                                    <input type="text" class="form-control" name="rfc" disabled value= <?php echo $orden["rfc"] ?> >
                                 </div>
 
                                 <div class="form-group">
-                                    <label for="cuenta_abono">Cuenta de Abono</label>
-                                    <input type="text" class="form-control" value="<?php echo $orden["cuenta_abono"]; ?>" disabled>
+                                    <label for="sucursal">Direccion</label>
+                                    <input type="text" class="form-control" name="direccion" disabled value= <?php echo $orden["direccion"] ?> >
                                 </div>
 
                                 <div class="form-group">
-                                    <label for="sucursal">Sucursal</label>
-                                    <input type="text" class="form-control" value="<?php echo $orden["sucursal"]; ?>" disabled>
+                                    <label for="cuenta_abono">Cuenta</label>
+                                    <input type="text" class="form-control" name="cuenta" disabled value= <?php echo $orden["cuenta"] ?> >
                                 </div>
 
                                 <div class="form-group">
                                     <label for="clabe">Clabe</label>
-                                    <input type="text" class="form-control" value="<?php echo $orden["clabe"]; ?>" disabled>
+                                    <input type="text" class="form-control" name="clabe" disabled value= <?php echo $orden["clabe"] ?> >
                                 </div>
 
                                 <div class="form-group">
-                                    <label for="referencia">Referencia Bancaria</label>
-                                    <input type="text" class="form-control"  value="<?php echo $orden["ref_bancaria"]; ?>" disabled>
+                                    <label for="banco">Banco</label>
+                                    <input type="text" class="form-control" name="banco" disabled value= <?php echo $orden["banco"] ?> >
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="proveedor">Nombre Comercial Proveedor</label>
+                                    <input type="text" class="form-control" name="nombre_comercial" disabled value= <?php echo $orden["nombre_comercial"] ?> >
                                 </div>
                                 
 

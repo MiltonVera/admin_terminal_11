@@ -57,6 +57,9 @@ include_once 'templates/navegacion.php';
                   <input type="password" class="form-control" id="password" name="password" placeholder="Password para Iniciar Sesión">
                 </div>
               </div>
+
+              <?php if($_SESSION['rol'] == "Full Admin"){ ?>
+
               <div class="form-group">
                     <label>Rol</label>
                       <select class="form-control select2" name="rol" style="width: 100%;">
@@ -72,6 +75,8 @@ include_once 'templates/navegacion.php';
                         <option <?php if($admin["rol"] == "Subdireccion De Operaciones"){echo "selected='selected'";}?> value="Subdireccion De Operaciones">Subdireccion De Operaciones</option>
                       </select>
                 </div>
+
+                <?php } ?>
               <!-- /.box-body -->
 
               <div class="box-footer">

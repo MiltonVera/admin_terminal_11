@@ -16,7 +16,7 @@ $orden=$stmt->get_result();
 $orden = $orden->fetch_assoc();
 
 $stmt->close();
-$conn->close();
+
 ?>
 
 
@@ -32,6 +32,16 @@ $conn->close();
         </h1>
     </section>
 
+    <?php 
+        $stmt2 = $conn->prepare("SELECT id_proveedor,nombre_comercial FROM proveedores");
+        $stmt2->execute();
+
+        $datos = $stmt2->get_result();
+        $stmt2->close();
+        $conn->close();
+        
+    ?>
+
     <div class="row">
         <div class="col-md-8">
             <!-- Main content -->
@@ -46,8 +56,13 @@ $conn->close();
                             <div class="box-body">
 
                                 <div class="form-group">
-                                    <label for="proveedor">Nombre del Proveedor</label>
-                                    <input type="text" class="form-control" name="proveedor">
+                                    <label>Proveedor(Opcional)</label>
+                                    <select class="form-control select2 proveedor" name="proveedor" style="width: 100%;">
+                                        <option selected="selected">---Selecionar----</option>
+                                        <?php while($proveedor = $datos->fetch_assoc()) {?>
+                                            <option value="<?php echo $proveedor["id_proveedor"] ?>"><?php echo $proveedor["nombre_comercial"] ?></option>
+                                        <?php } ?>
+                                    </select>
                                 </div>
 
                                 <div class="form-group">
@@ -57,7 +72,7 @@ $conn->close();
 
                                 <div class="form-group">
                                     <label for="contado">Contado</label>
-                                    <input type="text" class="form-control" name="contado">
+                                    <input type="text" class="form-control" name="contado" >
                                 </div>
 
                                 <div class="form-group">
@@ -66,35 +81,40 @@ $conn->close();
                                 </div>
 
                                 <div class="form-group">
-                                    <label for="datos_pago">Datos del Pago</label>
-                                    <input type="text" class="form-control" name="datos_pago">
+                                    <label for="proveedor">Nombre Fiscal Proveedor</label>
+                                    <input type="text" class="form-control" name="nombre_fiscal" id = "nombre_fiscal">
                                 </div>
 
                                 <div class="form-group">
-                                    <label for="banco">Banco</label>
-                                    <input type="text" class="form-control" name="banco">
+                                    <label for="proveedor">RFC</label>
+                                    <input type="text" class="form-control" name="rfc" id="rfc">
                                 </div>
 
                                 <div class="form-group">
-                                    <label for="cuenta_abono">Cuenta de Abono</label>
-                                    <input type="text" class="form-control" name="cuenta_abono">
+                                    <label for="sucursal">Direccion</label>
+                                    <input type="text" class="form-control" name="direccion" id="direccion">
                                 </div>
 
                                 <div class="form-group">
-                                    <label for="sucursal">Sucursal</label>
-                                    <input type="text" class="form-control" name="sucursal">
+                                    <label for="cuenta_abono">Cuenta</label>
+                                    <input type="text" class="form-control" name="cuenta" id="cuenta">
                                 </div>
 
                                 <div class="form-group">
                                     <label for="clabe">Clabe</label>
-                                    <input type="text" class="form-control" name="clabe">
+                                    <input type="text" class="form-control" name="clabe" id="clabe">
                                 </div>
 
                                 <div class="form-group">
-                                    <label for="referencia">Referencia Bancaria</label>
-                                    <input type="text" class="form-control" name="referencia">
+                                    <label for="banco">Banco</label>
+                                    <input type="text" class="form-control" name="banco" id="banco">
                                 </div>
-                                
+
+                                <div class="form-group">
+                                    <label for="proveedor">Nombre Comercial Proveedor</label>
+                                    <input type="text" class="form-control" name="nombre_comercial" id="nombre_comercial">
+                                </div>
+
 
                                 <?php 
                                 $productos = json_decode($orden["productos"],true);
@@ -188,6 +208,9 @@ $conn->close();
 <script src="../js/app.js"></script>
 
 <script>
+     $(document).ready(function() {
+
+
     $(document).on("click",".remove_item_btn",function(e){
             e.preventDefault();
             let row_item = $(this).parent().parent();
@@ -226,6 +249,39 @@ $conn->close();
 
             }
         })
+    });
+
+    $(".proveedor").change(function(e){
+            console.log("Change Activado")
+            let id = $(".proveedor").val();
+            console.log(id);
+            $.ajax({
+            type: 'post',
+            data:{
+                "id_proveedor" : id
+            },
+            url: 'modelo-proveedor.php',
+            dataType :'json',
+            success: function(data) {  
+                console.log(data); 
+                $("#nombre_fiscal").val(data.nombre_fiscal);
+                $("#rfc").val(data.rfc);
+                $("#direccion").val(data.direccion);
+                $("#cuenta").val(data.cuenta);
+                $("#clabe").val(data.clabe);
+                $("#banco").val(data.banco);
+                $("#nombre_comercial").val(data.nombre_comercial);
+                
+               
+                                    
+            },
+            
+            error: function (data) {
+                console.log(data);
+            },
+            })
+    });
+
     });
 </script>
 </body>

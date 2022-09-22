@@ -69,6 +69,8 @@
 
             <?php if($_SESSION["rol"] == "Compras" or $_SESSION["rol"] == "Full Admin"){ ?>
               <li><a href="/compras/orden_compra.php"><i class="fa-solid fa-bag-shopping"></i> Orden de Compra</a></li>
+
+              <li><a href="/compras/nuevo_proveedor.php"><i class="fa-solid fa-truck-field"></i> Añadir Proveedor</a></li>
             <?php } ?>
 
             <?php if($_SESSION["rol"] == "Contabilidad" or $_SESSION["rol"] == "Full Admin"){ ?>

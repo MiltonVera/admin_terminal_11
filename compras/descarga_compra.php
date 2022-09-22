@@ -161,14 +161,8 @@ $conn->close();
         
 
         <div class="campo" style=" grid-column: 1 / 2;">
-            <h3>Nombre del Proveedor</h3>
-            <p><?php echo $orden["nombre_proveedor"]; ?></p>
-        </div>
-
-    
-        <div class="campo" style=" grid-column: 1 / 2;">
             <h3>Cheque a Favor</h3>
-            <p><?php echo $orden["cheque_a_favor"]; ?></p>
+            <p><?php echo $orden["cheque"]; ?></p>
         </div>
 
         <div class="campo" style=" grid-column: 1 / 2;">
@@ -181,27 +175,30 @@ $conn->close();
             <p><?php echo $orden["credito"]; ?></p>
         </div>
 
+        <div class="campo" style=" grid-column: 1 / 2;">
+            <h3>Nombre Comercial</h3>
+            <p><?php echo $orden["nombre_comercial"]; ?></p>
+        </div>
+
         <h2 class="campo" style="margin: 15rem 0 3rem 0 ; grid-column: 1 / 3; color:var(--color_oscuro);">Datos del Pago</h2>
 
-                                                                
         <div class="campo">
-            <h3>Datos del Pago</h3>
-            <p><?php echo $orden["datos_pago"]; ?></p>
+            <h3>Nombre Fiscal</h3>
+            <p><?php echo $orden["nombre_fiscal"]; ?></p>
+        </div>
+        <div class="campo">
+            <h3>RFC</h3>
+            <p><?php echo $orden["rfc"]; ?></p>
         </div>
 
         <div class="campo">
-            <h3>Banco</h3>
-            <p><?php echo $orden["banco"]; ?></p>
+            <h3>Direccion</h3>
+            <p><?php echo $orden["direccion"]; ?></p>
         </div>
-
+                                                            
         <div class="campo">
-            <h3>Cuenta de Abono</h3>
-            <p><?php echo $orden["cuenta_abono"]; ?></p>
-        </div>
-
-        <div class="campo">
-            <h3>Sucursal</h3>
-            <p><?php echo $orden["sucursal"]; ?></p>
+            <h3>Cuenta</h3>
+            <p><?php echo $orden["cuenta"]; ?></p>
         </div>
 
         <div class="campo">
@@ -210,8 +207,8 @@ $conn->close();
         </div>
 
         <div class="campo">
-            <h3>Referencia Bancaria</h3>
-            <p><?php echo $orden["ref_bancaria"]; ?></p>
+            <h3>Banco</h3>
+            <p><?php echo $orden["banco"]; ?></p>
         </div>
 
     </div>

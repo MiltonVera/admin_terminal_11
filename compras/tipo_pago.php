@@ -53,6 +53,10 @@
                                             <i class="fa-solid fa-money-bill"></i>
                                         </button>
 
+                                        <button data-id="<?php echo $pago['id_pago'] ?>" orden-id="<?php echo $pago['id_orden'] ?>" tipo="tarjeta" data-tipo="pago" class="btn bg-red bnt-flat margin enviar_pago">
+                                          <i class="fa-solid fa-credit-card"></i>
+                                        </button>
+
                                         <button data-id="<?php echo $pago['id_pago'] ?>" orden-id="<?php echo $pago['id_orden'] ?>" tipo="cheque" data-tipo="pago" class="btn bg-blue bnt-flat margin enviar_pago">
                                             <i class="fa-solid fa-money-check"></i>
                                         </button>
