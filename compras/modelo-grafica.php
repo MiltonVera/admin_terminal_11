@@ -103,7 +103,7 @@ try {
     //Creamos un arreglo asociativo en el que se puedan ir sumando los costos
     $gasto_area = array("Administracion" => 0,"Contabilidad"=> 0,"Recursos_Humanos"=> 0,
                         "Seguridad"=> 0,"Medio_Ambiente"=> 0,"Recinto_Fiscal"=> 0,
-                        "Almacen"=> 0,"Operacion"=> 0,"Ingenieria"=> 0, "Mantenimiento"=> 0);
+                        "Almacen"=> 0,"Operacion"=> 0,"Ingenieria"=> 0, "Mantenimiento"=> 0, "Direccion" => 0);
     
    //Usando los ids resultado de la consulta y la base de datos original llenamos gasto area
    foreach($consulta_filtrada as $id){
