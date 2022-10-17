@@ -49,6 +49,7 @@ include_once '../templates/navegacion.php';
                                         <option value="Ingenieria">Ingenieria</option>
                                         <option value="Mantenimiento">Mantenimiento</option>
                                         <option value="Direccion">Direccion</option>
+                                        <option value="Comercial">Comercial</option>
                                     </select>
                                 </div>
 
