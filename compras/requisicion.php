@@ -79,6 +79,15 @@ include_once '../templates/navegacion.php';
                                         <option value="Construccion">Construccion</option>
                                         <option value="Mantenimiento">Mantenimiento</option>
                                         <option value="Rentas">Rentas</option>
+                                        <option value="Insumos">Insumos</option>
+                                        <option value="Computacion">Computacion</option>
+                                        <option value="Salud">Salud</option>
+                                        <option value="Paqueteria">Paqueteria</option>
+                                        <option value="Seguros">Seguros</option>
+                                        <option value="Viaticos">Viaticos</option>
+                                        <option value="Seguridad">Seguridad e Higiene</option>
+                                        <option value="Maquinaria">Maquinaria</option>
+                                        <option value="Otros">Otros</option>
                                     
                                     </select>
                                 </div>
